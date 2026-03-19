@@ -6,7 +6,7 @@ namespace Assignment2.Resources
 {
     internal class GlobalUsings
     {
-        // Hello World, Tom.
+        // Hello World, Tom & Jerry.
         
     }
 }
