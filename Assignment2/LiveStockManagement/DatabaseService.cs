@@ -24,9 +24,9 @@ public class DatabaseService
 
     }
 
-    public List<LiveStock> ReadItems()
+    public List<Livestock> ReadItems()
     { 
-        var liveStocks = new List<LiveStock>();
+        var liveStocks = new List<Livestock>();
         var lst1 = _conn.Table<Cow>().ToList();
         liveStocks.AddRange(lst1);
         var lst2 = _conn.Table<Sheep>().ToList();
@@ -34,17 +34,17 @@ public class DatabaseService
         return liveStocks;
     }
 
-    public int InssertItem(LiveStock item)
+    public int InssertItem(Livestock item)
     {
         return _conn.Insert(item);
     }
 
-    public int DeleteItem(LiveStock item)
+    public int DeleteItem(Livestock item)
     { 
         return _conn.Delete(item);
     }
 
-    public int UpdateItem(LiveStock item)
+    public int UpdateItem(Livestock item)
     { 
         return _conn.Update(item);
     }

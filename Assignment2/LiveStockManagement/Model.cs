@@ -1,6 +1,6 @@
 ﻿namespace LiveStockManagement;
 
-public class LiveStock 
+public class Livestock 
 {
     [PrimaryKey, AutoIncrement]
     public int Id { get; set; }
@@ -11,13 +11,13 @@ public class LiveStock
 }
 
 [Table("Cow")]
-public class Cow : LiveStock
+public class Cow : Livestock
 {
     public double Milk { get; set; }
 }
 
 [Table("Sheep")]
-public class Sheep : LiveStock
+public class Sheep : Livestock
 {
     public double Wool { get; set; }
 }
