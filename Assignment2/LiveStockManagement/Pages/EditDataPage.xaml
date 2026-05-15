@@ -6,8 +6,26 @@
              x:DataType="pages:EditDataPage"
              Title="EditDataPage">
     <VerticalStackLayout HorizontalOptions="Center" Spacing="10">
-    <Picker x:Name="AnimalPicker" Title="Select Animal type" ItemsSource="{Binding AnimalTypes, Mode=OneTime}"/>
+        <Picker x:Name="AnimalPicker"
+                Title="Select Animal Type"
+                ItemsSource="{Binding AnimalTypes, Mode=OneTime}"
+                SelectedIndexChanged="OnAnimalTypeChanged"/>
+
+        <Entry x:Name="ExpenseEntry" Placeholder="Expense" Keyboard="Numeric"/>
+        <Entry x:Name="WeightEntry"  Placeholder="Weight"  Keyboard="Numeric"/>
+
+        <Entry x:Name="ColourEntry" Placeholder="Colour (black, red, or white)"/>
+        <Entry x:Name="MilkEntry"
+               Placeholder="Milk"
+               Keyboard="Numeric"
+               IsVisible="{Binding IsCow}"/>
+        <Entry x:Name="WoolEntry"
+               Placeholder="Wool"
+               Keyboard="Numeric"
+               IsVisible="{Binding IsSheep}"/>
+
+        <Button Text="Add Record" Clicked="Add"/>
+
+    </VerticalStackLayout>
     
-    <Button Clicked="Add" HeightRequest="10" Text="Add Dummy"/>
-</VerticalStackLayout>
 </ContentPage>
