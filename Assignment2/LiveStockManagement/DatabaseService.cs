@@ -34,7 +34,7 @@ public class DatabaseService
         return liveStocks;
     }
 
-    public int InssertItem(Livestock item)
+    public int InsertItem(Livestock item)
     {
         return _conn.Insert(item);
     }
