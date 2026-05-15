@@ -7,6 +7,7 @@
              Title="EditDataPage">
     <VerticalStackLayout HorizontalOptions="Center" Spacing="10">
     <Picker x:Name="AnimalPicker" Title="Select Animal type" ItemsSource="{Binding AnimalTypes, Mode=OneTime}"/>
+    
     <Button Clicked="Add" HeightRequest="10" Text="Add Dummy"/>
 </VerticalStackLayout>
 </ContentPage>
