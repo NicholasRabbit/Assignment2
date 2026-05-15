@@ -4,7 +4,7 @@ public class Livestock
 {
     [PrimaryKey, AutoIncrement]
     public int Id { get; set; }
-    public double Expnese { get; set; }
+    public double Expense { get; set; }
     public double Weight { get; set; }
     public string? Colour { get; set; }
 
