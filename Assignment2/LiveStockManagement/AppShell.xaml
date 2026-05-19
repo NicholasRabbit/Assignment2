@@ -10,6 +10,7 @@
     <TabBar>
         <ShellContent Shell.NavBarIsVisible="False" Title="Data Listing" ContentTemplate="{DataTemplate pages:DataPage}" />
         <ShellContent Shell.NavBarIsVisible="False" Title="Edit Data" ContentTemplate="{DataTemplate pages:EditDataPage}" />
+        <ShellContent Shell.NavBarIsVisible="False" Title="Delete Data" ContentTemplate="{DataTemplate pages:DeleteDataPage}" />
 
     </TabBar>
 </Shell>
