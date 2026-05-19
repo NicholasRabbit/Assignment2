@@ -13,6 +13,19 @@ public partial class DeleteDataPage : ContentPage
 
     private void Delete(object sender, EventArgs e)
     {
+        //int Id_Received = int.Parse(Id_Entry.Text);
+        //DeleteById(Id_Received);
+
+        //Store? store = Stores.FirstOrDefault(s => s.Id == id);
+        //if (store is not null)
+        //{
+        //    if (database.DeleteItem(store) > 0)
+        //    {
+        //        Stores.Remove(store);
+        //        WriteLine($"Record deleted: {store}");
+        //    }
+        //}
+
         //if (AnimalPicker.SelectedItem is not string type)
         //{
         //    DisplayAlert("", "Must select animal type", "OK");
@@ -44,4 +57,16 @@ public partial class DeleteDataPage : ContentPage
         //    WeakReferenceMessenger.Default.Send(new DBUpdatedMessage(true));
         //}
     }
+    //public void DeleteById(int id)
+    //{
+    //    Livestock? livestock = AnimalTypes.FirstOrDefault(s => s.Id == id);
+    //    if (livestock is not null)
+    //    {
+    //        if (database.DeleteItem(livestock) > 0)
+    //        {
+    //            Employees.Remove(employee);
+    //            WriteLine($"Record deleted: {employee}");
+    //        }
+    //    }
+    //}
 }

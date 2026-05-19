@@ -6,7 +6,7 @@
              x:DataType="pages:DeleteDataPage"
              Title="DeleteDataPage">
     <VerticalStackLayout HorizontalOptions="Center" Spacing="10">
-        <Entry x:Name="ID" Placeholder="Enter Animal Id"/>
+        <Entry x:Name="Id_Entry" Placeholder="Enter Animal Id"/>
             <Button Clicked="Delete" HeightRequest="10" Text="Delete Animal Record"/>
     </VerticalStackLayout>
 </ContentPage>
