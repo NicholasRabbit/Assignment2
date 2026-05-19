@@ -9,7 +9,11 @@ public partial class DataPage : ContentPage
 		InitializeComponent();
 		BindingContext = this;
 		dbs.ReadItems().ForEach(item => Livestock.Add(item));
-
+        WeakReferenceMessenger.Default.Register<DBUpdatedMessage>(this, (r, m) =>
+        {
+            Livestock.Clear();
+            dbs.ReadItems().ForEach(x => Livestock.Add(x));
+        });
 
     }
 }
