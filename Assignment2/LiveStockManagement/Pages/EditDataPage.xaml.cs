@@ -50,7 +50,7 @@ public partial class EditDataPage : ContentPage
 
     private void Add(object sender, EventArgs e)
     {
-        // Animal type must be selected
+        // Should select an animal type.
         if (AnimalPicker.SelectedItem is null)
         {
             DisplayAlert("Error", "Please select an animal type.", "OK");
@@ -129,7 +129,7 @@ public partial class EditDataPage : ContentPage
         {
             DisplayAlert("", $"Added:{animalType} ", "Ok");
             WeakReferenceMessenger.Default.Send(new DBUpdatedMessage(true));
-            ClearForm();
+            //ClearForm();
         }
         else
         {
