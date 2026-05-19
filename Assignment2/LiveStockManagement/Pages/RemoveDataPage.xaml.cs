@@ -39,7 +39,7 @@ public partial class RemoveDataPage : ContentPage
         // Get the item from the database by ID.
         var item = _dbs.GetItemById(id);
 
-        // Show an alert if item doesn't exit.
+        // Show an alert if item doesn't exist.
         int deletedCount = 0;
         if (item == null)
         {
