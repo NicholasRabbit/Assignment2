@@ -4,9 +4,37 @@
              x:Class="LiveStockManagement.Pages.DeleteDataPage"
              xmlns:pages="clr-namespace:LiveStockManagement.Pages"
              x:DataType="pages:DeleteDataPage"
-             Title="DeleteDataPage">
-    <VerticalStackLayout HorizontalOptions="Center" Spacing="10">
-        <Entry x:Name="Id_Entry" Placeholder="Enter Animal Id"/>
-            <Button Clicked="Delete" HeightRequest="10" Text="Delete Animal Record"/>
+             Title="Delete Livestock Record">
+
+    <VerticalStackLayout HorizontalOptions="Center" VerticalOptions="Center" Spacing="16" Padding="24">
+
+        <Label Text="Remove Livestock Record"
+               FontSize="20"
+               FontAttributes="Bold"
+               HorizontalOptions="Center"/>
+
+        <Label Text="Enter the Livestock ID of the record you wish to delete."
+               HorizontalOptions="Center"
+               HorizontalTextAlignment="Center"
+               TextColor="Gray"/>
+
+        <Entry x:Name="Id_Entry"
+               Placeholder="Enter Animal ID (numeric)"
+               Keyboard="Numeric"
+               ClearButtonVisibility="WhileEditing"
+               HorizontalOptions="FillAndExpand"/>
+
+        <Label x:Name="ErrorLabel"
+               TextColor="Red"
+               HorizontalOptions="Center"
+               IsVisible="False"/>
+
+        <Button Text="Delete Animal Record"
+                Clicked="Delete"
+                BackgroundColor="Red"
+                TextColor="White"
+                CornerRadius="8"
+                HorizontalOptions="FillAndExpand"/>
+
     </VerticalStackLayout>
 </ContentPage>

@@ -3,7 +3,9 @@ namespace LiveStockManagement.Pages;
 public partial class DeleteDataPage : ContentPage
 {
     private readonly DatabaseService _dbs;
+
     public List<string> AnimalTypes { get; set; } = ["Cow", "Sheep"];
+
     public DeleteDataPage(DatabaseService dbs)
     {
         InitializeComponent();
@@ -11,62 +13,53 @@ public partial class DeleteDataPage : ContentPage
         BindingContext = this;
     }
 
-    private void Delete(object sender, EventArgs e)
+    private async void Delete(object sender, EventArgs e)
     {
-        //int Id_Received = int.Parse(Id_Entry.Text);
-        //DeleteById(Id_Received);
+        string input = Id_Entry.Text?.Trim();
 
-        //Store? store = Stores.FirstOrDefault(s => s.Id == id);
-        //if (store is not null)
-        //{
-        //    if (database.DeleteItem(store) > 0)
-        //    {
-        //        Stores.Remove(store);
-        //        WriteLine($"Record deleted: {store}");
-        //    }
-        //}
+        // Requirement 4: Validate format — must be a non-empty integer
+        if (string.IsNullOrWhiteSpace(input) || !int.TryParse(input, out int id))
+        {
+            ShowError("Invalid input. Please enter a valid numeric Livestock ID.");
+            return;
+        }
 
-        //if (AnimalPicker.SelectedItem is not string type)
-        //{
-        //    DisplayAlert("", "Must select animal type", "OK");
-        //    return;
-        //}
-        //Livestock? s = type switch
-        //{
-        //    "Cow" => new Cow()
-        //    {
-        //        Expense = 0,
-        //        Weight = 0,
-        //        Colour = "Black",
-        //        Milk = 0,
-        //    },
-        //    "Sheep" => new Sheep()
-        //    {
-        //        Expense = 0,
-        //        Weight = 0,
-        //        Colour = "Black",
-        //        Wool = 0,
-        //    },
-        //    _ => null,
-        //};
-        //if (s is null) return;
-        //int added = _dbs.InsertItem(s);
-        //if (added > 0)
-        //{
-        //    DisplayAlert("", $"Added: {s.Expense}", "OK");
-        //    WeakReferenceMessenger.Default.Send(new DBUpdatedMessage(true));
-        //}
+        // Requirement 3: Validate existence
+        var existing = _dbs.ReadItems().FirstOrDefault(x => x.Id == id);
+        if (existing is null)
+        {
+            ShowError($"Non-existent livestock ID: {id}.");
+            return;
+        }
+
+        // Requirement 2: Confirm before deleting
+        bool confirmed = await DisplayAlert(
+            "Confirm Deletion",
+            $"Are you sure you want to delete livestock record with ID {id}? This cannot be undone.",
+            "Delete",
+            "Cancel");
+
+        if (!confirmed)
+            return;
+
+        // Requirement 5 & 6: Delete from DB and notify observers (DataPage listens via messenger)
+        _dbs.DeleteItem(id);
+        WeakReferenceMessenger.Default.Send(new DBUpdatedMessage());
+
+        HideError();
+        Id_Entry.Text = string.Empty;
+        await DisplayAlert("Success", $"Livestock record {id} has been deleted.", "OK");
     }
-    //public void DeleteById(int id)
-    //{
-    //    Livestock? livestock = AnimalTypes.FirstOrDefault(s => s.Id == id);
-    //    if (livestock is not null)
-    //    {
-    //        if (database.DeleteItem(livestock) > 0)
-    //        {
-    //            Employees.Remove(employee);
-    //            WriteLine($"Record deleted: {employee}");
-    //        }
-    //    }
-    //}
+
+    private void ShowError(string message)
+    {
+        ErrorLabel.Text = message;
+        ErrorLabel.IsVisible = true;
+    }
+
+    private void HideError()
+    {
+        ErrorLabel.Text = string.Empty;
+        ErrorLabel.IsVisible = false;
+    }
 }
