@@ -48,5 +48,14 @@ public class DatabaseService
     { 
         return _conn.Update(item);
     }
-        
+
+    // Get an item by its ID.
+    public Livestock? GetItemById(int id)
+    {
+        var cow = _conn.Table<Cow>().FirstOrDefault(c => c.Id == id);
+        if (cow != null) return cow;
+        var sheep = _conn.Table<Sheep>().FirstOrDefault(s => s.Id == id);
+        return sheep;
+    }
+
 }
