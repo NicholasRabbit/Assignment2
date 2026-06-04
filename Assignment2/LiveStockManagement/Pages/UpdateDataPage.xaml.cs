@@ -161,7 +161,7 @@ public partial class UpdateDataPage : ContentPage
         // Apply common fields
         _currentItem.Expense = expense;
         _currentItem.Weight = weight;
-        _currentItem.Colour = colour;
+        _currentItem.Colour = char.ToUpper(colour[0]) + colour.Substring(1);
 
         // Apply type-specific field and update
         int updated = 0;
