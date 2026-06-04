@@ -107,7 +107,8 @@ public partial class EditDataPage : ContentPage
             {
                 Expense = expense,
                 Weight = weight,
-                Colour = colour,
+                // Captilize the first letter of the colour for consistency
+                Colour = char.ToUpper(colour[0]) + colour.Substring(1),
                 Milk = milk
             };
             added = _dbs.InsertItem(cow);
@@ -118,7 +119,7 @@ public partial class EditDataPage : ContentPage
             {
                 Expense = expense,
                 Weight = weight,
-                Colour = colour,
+                Colour = char.ToUpper(colour[0]) + colour.Substring(1),
                 Wool = wool
             };
             added = _dbs.InsertItem(sheep);
@@ -129,7 +130,7 @@ public partial class EditDataPage : ContentPage
         {
             DisplayAlert("", $"Added:{animalType} ", "Ok");
             WeakReferenceMessenger.Default.Send(new DBUpdatedMessage(true));
-            //ClearForm();
+            ClearForm();
         }
         else
         {

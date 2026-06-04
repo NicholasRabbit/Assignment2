@@ -133,7 +133,7 @@ public partial class UpdateDataPage : ContentPage
         IsRecordFound = true;
     }
 
-    // ©¤©¤ Step 2: Validate and save ©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤
+    //  Step 2: Validate and save 
     private void OnSaveClicked(object sender, EventArgs e)
     {
         if (_currentItem is null) return;
