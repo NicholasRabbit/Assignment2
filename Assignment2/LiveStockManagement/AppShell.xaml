@@ -12,5 +12,6 @@
         <ShellContent Shell.NavBarIsVisible="False" Title="Edit Data" ContentTemplate="{DataTemplate pages:EditDataPage}" />
         <ShellContent Shell.NavBarIsVisible="False" Title="Remove Data" ContentTemplate="{DataTemplate pages:RemoveDataPage}" />
         <ShellContent Shell.NavBarIsVisible="False" Title="Update Data" ContentTemplate="{DataTemplate pages:UpdateDataPage}" />
+        <ShellContent Shell.NavBarIsVisible="False" Title="Statistics" ContentTemplate="{DataTemplate pages:StatisticsPage}" />
     </TabBar>
 </Shell>

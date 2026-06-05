@@ -14,10 +14,13 @@ namespace LiveStockManagement
                     fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");
                     fonts.AddFont("OpenSans-Semibold.ttf", "OpenSansSemibold");
                 })
-                .Services.AddSingleton<DatabaseService>();
+                .Services
+                    .AddSingleton<DatabaseService>()
+                    .AddTransient<StatisticsPage>();   // ← added for Feature 5
+
 
 #if DEBUG
-    		builder.Logging.AddDebug();
+            builder.Logging.AddDebug();
 #endif
 
             return builder.Build();
