@@ -16,7 +16,9 @@ namespace LiveStockManagement
                 })
                 .Services
                     .AddSingleton<DatabaseService>()
-                    .AddTransient<StatisticsPage>();   // ← added for Feature 5
+                    .AddTransient<StatisticsPage>() 
+                    .AddTransient<ProfitForecastPage>();
+
 
 
 #if DEBUG
