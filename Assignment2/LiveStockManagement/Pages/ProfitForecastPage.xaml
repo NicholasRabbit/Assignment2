@@ -6,18 +6,12 @@
 
     <ScrollView>
         <VerticalStackLayout Padding="16" Spacing="10">
-
-            <!-- ══════════════════════════════════════ -->
-            <!--  HEADING                               -->
-            <!-- ══════════════════════════════════════ -->
+            <!-- Heading -->
             <Label Text="Profit Forecast for Livestock Investment"
                    FontSize="18" FontAttributes="Bold"
                    HorizontalOptions="Center"
                    Margin="0,0,0,4"/>
-
-            <!-- ══════════════════════════════════════ -->
-            <!--  INPUTS                                -->
-            <!-- ══════════════════════════════════════ -->
+            <!-- Inputs -->
             <Label Text="Livestock Type:" FontAttributes="Bold"/>
             <Picker x:Name="TypePicker">
                 <Picker.Items>
@@ -40,9 +34,7 @@
                     Clicked="OnCalculateClicked"
                     BackgroundColor="#4CAF50" TextColor="White"/>
 
-            <!-- ══════════════════════════════════════ -->
-            <!--  RESULTS                               -->
-            <!-- ══════════════════════════════════════ -->
+            <!-- Results -->
             <Frame x:Name="ResultsFrame" IsVisible="False"
                    BorderColor="#CCCCCC" Padding="12" CornerRadius="6">
                 <VerticalStackLayout Spacing="8">
